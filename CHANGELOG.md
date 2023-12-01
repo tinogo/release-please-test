@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/tinogo/release-please-test/compare/v1.2.0...v1.2.1) (2023-12-01)
+
+
+### Bug Fixes
+
+* Use the correct github-token ([9df0bbc](https://github.com/tinogo/release-please-test/commit/9df0bbc1925f431353a7493eb92d914512391682))
+
 ## [1.2.0](https://github.com/tinogo/release-please-test/compare/v1.1.0...v1.2.0) (2023-12-01)
 
 
