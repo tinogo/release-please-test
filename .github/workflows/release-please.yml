@@ -1,0 +1,38 @@
+name: release-please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: simple
+          token: ${{ github.token }}
+
+      - name: Clone main repository
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v4
+        with:
+          depth: -1
+
+      - name: Checkout develop branch
+        if: ${{ steps.release.outputs.release_created }}
+        run: git checkout develop
+
+      - name: Merge main into develop branch
+        if: ${{ steps.release.outputs.release_created }}
+        run: git merge --no-ff main
+
+      - name: Push develop
+        if: ${{ steps.release.outputs.release_created }}
+        run: git push origin develop
