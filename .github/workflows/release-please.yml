@@ -22,6 +22,8 @@ jobs:
       - name: Clone main repository
         if: ${{ steps.release.outputs.release_created }}
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Merge main back to develop
         if: ${{ steps.release.outputs.release_created }}
