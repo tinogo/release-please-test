@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/tinogo/release-please-test/compare/v1.0.1...v1.1.0) (2023-12-01)
+
+
+### Features
+
+* merge main back into develop ([0ac4626](https://github.com/tinogo/release-please-test/commit/0ac46269c07f8f3af5c945b5ede9a18c78bc5b08))
+
 ## [1.0.1](https://github.com/tinogo/release-please-test/compare/v1.0.0...v1.0.1) (2023-12-01)
 
 
