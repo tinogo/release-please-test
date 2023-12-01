@@ -25,9 +25,9 @@ jobs:
 
       - name: Merge main back to develop
         if: ${{ steps.release.outputs.release_created }}
-        run: |
-          git fetch --unshallow
-          git checkout develop
-          git pull
-          git merge --no-ff main -m "Auto-merge main back to develop"
-          git push
+        uses: devmasx/merge-branch@v1.4.0
+        with:
+          type: now
+          from_branch: main
+          target_branch: develop
+          github_token: ${{ secrets.GITHUB_TOKEN }}
