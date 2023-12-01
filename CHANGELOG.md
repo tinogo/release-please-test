@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/tinogo/release-please-test/compare/v1.4.1...v1.4.2) (2023-12-01)
+
+
+### Bug Fixes
+
+* checkout the complete repo ([db28623](https://github.com/tinogo/release-please-test/commit/db286231293cf3f8ee1c803a6a0745583d9c60f1))
+
 ## [1.4.1](https://github.com/tinogo/release-please-test/compare/v1.4.0...v1.4.1) (2023-12-01)
 
 
