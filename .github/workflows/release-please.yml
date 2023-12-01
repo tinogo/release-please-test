@@ -35,4 +35,4 @@ jobs:
 
       - name: Push develop
         if: ${{ steps.release.outputs.release_created }}
-        run: git push origin develop
+        run: git push --set-upstream origin develop
