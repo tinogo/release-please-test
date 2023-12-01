@@ -23,16 +23,14 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         uses: actions/checkout@v4
         with:
-          depth: -1
+          fetch-depth: 0
 
-      - name: Checkout develop branch
+      - name: Merge main back to develop
         if: ${{ steps.release.outputs.release_created }}
-        run: git checkout develop
-
-      - name: Merge main into develop branch
-        if: ${{ steps.release.outputs.release_created }}
-        run: git merge --no-ff main
-
-      - name: Push develop
-        if: ${{ steps.release.outputs.release_created }}
-        run: git push --set-upstream origin develop
+        uses: robotology/gh-action-nightly-merge@v1.4.0
+        with:
+          stable_branch: 'main'
+          development_branch: 'develop'
+          allow_ff: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
