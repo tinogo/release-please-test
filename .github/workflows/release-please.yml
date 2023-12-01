@@ -25,9 +25,10 @@ jobs:
 
       - name: Merge main back to develop
         if: ${{ steps.release.outputs.release_created }}
-        uses: devmasx/merge-branch@v1.4.0
+        uses: robotology/gh-action-nightly-merge@v1.4.0
         with:
-          type: now
-          from_branch: main
-          target_branch: develop
-          github_token: ${{ github.token }}
+          stable_branch: 'main'
+          development_branch: 'develop'
+          allow_ff: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
