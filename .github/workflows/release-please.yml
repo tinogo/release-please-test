@@ -23,7 +23,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         uses: actions/checkout@v4
         with:
-          depth: -1
+          fetch-depth: 0
 
       - name: Checkout develop branch
         if: ${{ steps.release.outputs.release_created }}
