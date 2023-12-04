@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/tinogo/release-please-test/compare/v1.7.0...v1.7.1) (2023-12-04)
+
+
+### Bug Fixes
+
+* change to order of enabling the auto-merge + approving the PR ([de549eb](https://github.com/tinogo/release-please-test/commit/de549eb2caf6c472acda3ea1571067a9c08ba78d))
+
 ## [1.7.0](https://github.com/tinogo/release-please-test/compare/v1.6.0...v1.7.0) (2023-12-04)
 
 
