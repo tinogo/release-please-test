@@ -1,0 +1,31 @@
+name: 'Create and maintain a PR for merging changes from develop into main'
+
+on:
+  push:
+    branches:
+      - develop
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.ref }}-develop-to-main
+
+jobs:
+  create-pr-develop-to-main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: 'Create merge branch'
+        run: |
+          git checkout release/merge-develop-into-main || git checkout -b release/merge-develop-into-main
+          git rebase develop
+          git push --force
+      - name: 'Create PR'
+        run: |
+          gh pr --repo $GITHUB_REPOSITORY create --title "chore(develop): Merge changes from develop into main" --base main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
