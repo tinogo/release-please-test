@@ -25,12 +25,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Merge main back to develop
+      - name: 'Create merge branch: main --> develop'
         if: ${{ steps.release.outputs.release_created }}
-        uses: robotology/gh-action-nightly-merge@v1.4.0
-        with:
-          stable_branch: 'main'
-          development_branch: 'develop'
-          allow_ff: false
+        run: |
+          git checkout release/merge-main-into-develop || git checkout -b release/merge-main-into-develop
+          git rebase main
+          git push --set-upstream origin release/merge-main-into-develop --force
+
+      - name: Create PR
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          (gh pr --repo $GITHUB_REPOSITORY create --fill --title "chore(main): Merge changes from main into develop" --base develop) || exit 0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
