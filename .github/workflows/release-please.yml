@@ -36,5 +36,8 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         run: |
           (gh pr --repo $GITHUB_REPOSITORY create --fill --title "chore(main): Merge changes from main into develop" --base develop) || exit 0
+          pull_request_url=$(gh pr view release/merge-main-into-develop --json url --jq '. | .url')
+          gh pr --repo $GITHUB_REPOSITORY review $pull_request_url --approve
+          gh pr --repo $GITHUB_REPOSITORY merge $pull_request_url --auto --merge
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
