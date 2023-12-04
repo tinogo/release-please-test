@@ -23,9 +23,9 @@ jobs:
         run: |
           git checkout release/merge-develop-into-main || git checkout -b release/merge-develop-into-main
           git rebase develop
-          git push --force
+          git push --set-upstream origin release/merge-develop-into-main --force
       - name: 'Create PR'
         run: |
-          gh pr --repo $GITHUB_REPOSITORY create --title "chore(develop): Merge changes from develop into main" --base main
+          gh pr --repo $GITHUB_REPOSITORY create --fill --title "chore(develop): Merge changes from develop into main" --base main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
