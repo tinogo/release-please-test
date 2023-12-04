@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.5.0](https://github.com/tinogo/release-please-test/compare/v1.4.3...v1.5.0) (2023-12-04)
+
+
+### Features
+
+* extend the readme ([2e49ae7](https://github.com/tinogo/release-please-test/commit/2e49ae78bd7ac7580e2c48c448b7555261d02293))
+
+## [1.4.3](https://github.com/tinogo/release-please-test/compare/v1.4.2...v1.4.3) (2023-12-01)
+
+
+### Bug Fixes
+
+* update the readme ([311b13c](https://github.com/tinogo/release-please-test/commit/311b13cda711f23e541d7d8658e5e6bade344f8b))
+
 ## [1.4.2](https://github.com/tinogo/release-please-test/compare/v1.4.1...v1.4.2) (2023-12-01)
 
 
