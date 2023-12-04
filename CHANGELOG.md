@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/tinogo/release-please-test/compare/v1.5.0...v1.6.0) (2023-12-04)
+
+
+### Features
+
+* auto-merge the main --&gt; develop PR ([830d785](https://github.com/tinogo/release-please-test/commit/830d785ce6c66b00eb85de3e678596ea7d078c39))
+
 ## [1.5.0](https://github.com/tinogo/release-please-test/compare/v1.4.3...v1.5.0) (2023-12-04)
 
 
