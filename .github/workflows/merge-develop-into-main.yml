@@ -19,13 +19,21 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "norepl@github.com"
+          git config --global user.name "GitHub Actions Bot"
+
       - name: 'Create merge branch: develop --> main'
         run: |
-          git checkout release/merge-develop-into-main || git checkout -b release/merge-develop-into-main
+          git checkout -b release/merge-develop-into-main
           git rebase develop
+          git pull -r origin main
           git push --set-upstream origin release/merge-develop-into-main --force
+
       - name: Create PR
         run: |
-          (gh pr --repo $GITHUB_REPOSITORY create --fill --title "chore(develop): Merge changes from develop into main" --base main) || exit 0
+          (gh pr --repo $GITHUB_REPOSITORY create --fill --title "chore(develop): Merge changes from develop into main" --reviewer tinogo --base main) || exit 0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
