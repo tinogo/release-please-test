@@ -25,11 +25,18 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Configure Git
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          git config --global user.email "norepl@github.com"
+          git config --global user.name "GitHub Actions Bot"
+
       - name: 'Create merge branch: main --> develop'
         if: ${{ steps.release.outputs.release_created }}
         run: |
-          git checkout release/merge-main-into-develop || git checkout -b release/merge-main-into-develop
+          git checkout -b release/merge-main-into-develop
           git rebase main
+          git pull -r origin develop
           git push --set-upstream origin release/merge-main-into-develop --force
 
       - name: Create PR
@@ -42,8 +49,9 @@ jobs:
       - name: Enable auto-merge for the PR
         if: ${{ steps.release.outputs.release_created }}
         run: |
-          pull_request_url=$(gh pr view release/merge-main-into-develop --json url --jq '. | .url')
-          gh pr --repo $GITHUB_REPOSITORY merge $pull_request_url --auto --merge
-          gh pr --repo $GITHUB_REPOSITORY review $pull_request_url --approve
+          gh pr --repo $GITHUB_REPOSITORY review release/merge-main-into-develop --approve
+          gh pr --repo $GITHUB_REPOSITORY merge release/merge-main-into-develop --auto --merge
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # the approver of a PR can not be the same user as the creator of the PR.
+          # That's why we are sticking with the default runner user here
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
