@@ -24,6 +24,7 @@ jobs:
         run: |
           git config --global user.email "norepl@github.com"
           git config --global user.name "GitHub Actions Bot"
+          git config advice.skippedCherryPicks false
 
       - name: 'Create merge branch: develop --> main'
         run: |

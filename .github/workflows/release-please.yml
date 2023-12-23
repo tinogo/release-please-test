@@ -33,6 +33,7 @@ jobs:
         run: |
           git config --global user.email "norepl@github.com"
           git config --global user.name "GitHub Actions Bot"
+          git config advice.skippedCherryPicks false
 
       - name: 'Create merge branch: main --> develop'
         if: ${{ steps.release.outputs.release_created }}
@@ -47,7 +48,7 @@ jobs:
         run: |
           (gh pr --repo $GITHUB_REPOSITORY create --fill --title "chore(main): Merge changes from main into develop" --base develop) || exit 0
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Enable auto-merge for the PR
         if: ${{ steps.release.outputs.release_created }}
@@ -57,4 +58,4 @@ jobs:
         env:
           # the approver of a PR can not be the same user as the creator of the PR.
           # That's why we are sticking with the default runner user here
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
