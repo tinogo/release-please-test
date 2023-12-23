@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.8.0](https://github.com/tinogo/release-please-test/compare/v1.7.1...v1.8.0) (2023-12-23)
+
+
+### Features
+
+* add actionlint + PR linter workflows ([8d02288](https://github.com/tinogo/release-please-test/commit/8d02288f4137b457b298d9df9af5a5dedde44c51))
+* update release-please to v4 ([14711fd](https://github.com/tinogo/release-please-test/commit/14711fd74f79513935800ad1073d84d5b5cef083))
+* update the workflows ([a62e8e6](https://github.com/tinogo/release-please-test/commit/a62e8e6e7e77a938de8357c5df484bba157907d7))
+
+
+### Miscellaneous
+
+* **ci:** finish the token replacement stuff ([4c85d93](https://github.com/tinogo/release-please-test/commit/4c85d937e68889bdeb7cf52be8417ae9d8378c7b))
+* **ci:** Replace the github.token usages ([#27](https://github.com/tinogo/release-please-test/issues/27)) ([01d75ad](https://github.com/tinogo/release-please-test/commit/01d75ad0d64c11e899e58dfaf392923621edc748))
+* **develop:** Merge changes from develop into main ([#23](https://github.com/tinogo/release-please-test/issues/23)) ([bb6cb3d](https://github.com/tinogo/release-please-test/commit/bb6cb3db432924b405dd2e9fd6c88a49c0cdc9f4))
+* **develop:** Merge changes from develop into main ([#24](https://github.com/tinogo/release-please-test/issues/24)) ([558e8ad](https://github.com/tinogo/release-please-test/commit/558e8adbc7d3c00d7dbd43fc93cef9a7d70a6ec8))
+* **docs:** Update readme ([#26](https://github.com/tinogo/release-please-test/issues/26)) ([93d8a57](https://github.com/tinogo/release-please-test/commit/93d8a57fd33fe0174d2c61cdba4cd450772c6642))
+
 ## [1.7.1](https://github.com/tinogo/release-please-test/compare/v1.7.0...v1.7.1) (2023-12-04)
 
 
