@@ -24,7 +24,10 @@ jobs:
         run: |
           git config --global user.email "norepl@github.com"
           git config --global user.name "GitHub Actions Bot"
+<<<<<<< HEAD
           git config advice.skippedCherryPicks false
+=======
+>>>>>>> main
 
       - name: 'Create merge branch: develop --> main'
         run: |
@@ -37,4 +40,8 @@ jobs:
         run: |
           (gh pr --repo $GITHUB_REPOSITORY create --fill --title "chore(develop): Merge changes from develop into main" --reviewer tinogo --base main) || exit 0
         env:
+<<<<<<< HEAD
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+=======
+          GITHUB_TOKEN: ${{ github.token }}
+>>>>>>> main
