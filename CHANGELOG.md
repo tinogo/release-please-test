@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/tinogo/release-please-test/compare/v1.8.0...v1.8.1) (2023-12-23)
+
+
+### Miscellaneous
+
+* **ci:** Use the github token for approving the PR ([3775a2e](https://github.com/tinogo/release-please-test/commit/3775a2eb7f6468f645e248972a61ba8b2bb21b05))
+
 ## [1.8.0](https://github.com/tinogo/release-please-test/compare/v1.7.1...v1.8.0) (2023-12-23)
 
 
