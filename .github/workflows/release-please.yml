@@ -58,4 +58,4 @@ jobs:
         env:
           # the approver of a PR can not be the same user as the creator of the PR.
           # That's why we are sticking with the default runner user here
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
