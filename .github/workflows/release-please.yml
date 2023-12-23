@@ -20,7 +20,7 @@ jobs:
           config-file: release-please-config.json
           # This file is maintained by release-please itself!
           manifest-file: .release-please-manifest.json
-          token: ${{ github.token }}
+          token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Clone main repository
         if: ${{ steps.release.outputs.release_created }}
